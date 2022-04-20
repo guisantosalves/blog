@@ -1,12 +1,19 @@
 import './App.css';
+import Left from './components/Left';
+import Right from './components/Right';
+import {Container, Row, Col} from 'react-bootstrap';
 
+//tem que botar sempre os links na pag html principal tmb, se n nao funciona
 function App() {
   return (
-    <div className="App">
-      <h1>esse é um teste</h1>
-      <p>esse é outro teste</p>
-    </div>
-  );
+    <Container>
+      <Row>
+        <Left/>
+        <Right/>
+      </Row>
+    </Container>
+  )
 }
+
 
 export default App;
