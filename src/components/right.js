@@ -3,7 +3,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 
 const Right = (props) => {
   return (
-    <Col>
+    <Col sm={9} >
       <h1>RIGHT</h1>
     </Col>
   );

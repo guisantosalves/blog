@@ -5,13 +5,13 @@ import imagee from "../images/avatar.png";
 //pegando a imagem por meio do import
 const Left = (props) => {
   return (
-    <Col>
-      <div>
+    <Col sm={3}>
+      <div style={{padding: '50px', border: '1px solid red'}}>
 
         <div style={{ marginTop: "70px" }}>
           <Image src={imagee} roundedCircle />
         </div>
-        
+
         <div style={{ marginTop: "10px" }}>
           <p>Guilherme santos alves pinto</p>
           <p>
