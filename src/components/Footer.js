@@ -5,7 +5,7 @@ const Footer = (props) => {
   return (
     <Col>
     <div style={style.footer}>
-      <h1>footer</h1>
+      <h6>Todos direitos reservados</h6>
     </div>
     </Col>
   );
@@ -17,6 +17,9 @@ const style = {
     padding: "10px",
     marginTop: "5px",
     borderRadius: "5px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }
 }
 export default Footer;
