@@ -18,11 +18,12 @@ const Right = (props) => {
               <Button variant="outline-primary">Like</Button>{" "}
               <Button variant="outline-primary">dont like</Button>
             </div>
-            <div style={{ display: "inline-block", float: "right" }}>
+            <div style={style.date}>
             date
             </div>
           </div>
         </div>
+
       </Col>
     </>
   );
@@ -51,6 +52,15 @@ const style = {
   likeAndDate: {
     margin: "5px",
     padding: "3px",
+  },
+  date: {
+    display: "inline-block", 
+    float: "right",
+    backgroundColor: "#FFFFFF",
+    color: "#000000",
+    width: "170px",
+    padding: "3px",
+    borderRadius: "5px",
   }
 };
 export default Right;
