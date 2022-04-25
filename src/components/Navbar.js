@@ -9,7 +9,7 @@ const NavbarComponent = (props) => {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             <h3>
-              <a href="#home" style={{textDecoration: 'none'}}>Login</a>
+              <a href="/login" style={{textDecoration: 'none'}}>Login</a>
             </h3>
           </Navbar.Text>
         </Navbar.Collapse>

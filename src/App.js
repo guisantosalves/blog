@@ -1,26 +1,16 @@
 import "./App.css";
-import Left from "./components/Left";
-import Right from "./components/Right";
-import NavbarComponent from "./components/Navbar";
-import Footer from "./components/Footer";
-import { Container, Row, Col } from "react-bootstrap";
+import * as React from "react";
+import {Routes, Route, Link} from "react-router-dom";
+import Home from "./components/Home"
+import IndexLogin from "./components/login/IndexLogin"
 
 //tem que botar sempre os links na pag html principal tmb, se n nao funciona
 function App() {
   return (
-    <>
-      <NavbarComponent />
-      <Container>
-        <Row>
-          <Left />
-          <Right />
-        </Row>
-        <Row>
-          <Footer/>
-        </Row>
-      </Container>
-      
-    </>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/login" element={<IndexLogin/>}/>
+    </Routes>
   );
 }
 
