@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import axios from "axios";
-import CryptoJS from "crypto-js"
+import CryptoJS from "crypto-js";
 
 function Login(props) {
   const [post, setPost] = useState(null);
@@ -28,12 +28,29 @@ function Login(props) {
       .get("http://localhost:3001/api/v1/getlogin")
       .then((response) => {
         //descriptografando
-        const result = CryptoJS.AES.decrypt(response.data, //chavevaiaq);
+        const result = CryptoJS.AES.decrypt(response.data, process.env.REACT_APP_KEYOFAES);
 
         //passando para utf8
         const puttingInUtf8 = result.toString(CryptoJS.enc.Utf8);
 
-        console.log(puttingInUtf8);
+        //verificando se a senha existe na string
+        const getResultOfEnv =
+          process.env.REACT_APP_PASSWORD == senha ? true : false;
+
+        if (puttingInUtf8.indexOf(process.env.REACT_APP_PASSWORD) !== -1) {
+          if (getResultOfEnv) {
+            console.log("você esta logado");
+
+            // ! mudar quando subir o blog
+            window.location.href = "http://localhost:3000/logado";
+          }else{
+            console.log("Senha incorreta")
+            alert("Senha incorreta")
+          }
+        } else {
+          console.log("você nao esta logado");
+          alert("você nao esta logado")
+        }
       })
       .catch((error) => {
         console.log(error);

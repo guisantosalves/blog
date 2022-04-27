@@ -6,7 +6,7 @@ import imagee from "../images/avatar.png";
 const Left = (props) => {
   return (
     <Col sm={3} style={{backgroundColor: "#06BCC1"}}>
-      <div style={{padding: '50px', border: '1px solid red'}}>
+      <div style={{padding: '50px'}}>
 
         <div style={{ marginTop: "70px" }}>
           <Image src={imagee} roundedCircle />

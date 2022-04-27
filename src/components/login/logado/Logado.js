@@ -1,26 +1,26 @@
-import Left from "./Left";
-import Right from "./Right";
-import NavbarComponent from "./Navbar";
-import Footer from "./Footer";
+import Left from "../../Left";
+import Right from "../../Right";
+import NavbarLogado from "./Navbar-logado";
+import Footer from "../../Footer";
 import { Container, Row, Col } from "react-bootstrap";
 
 //tem que botar sempre os links na pag html principal tmb, se n nao funciona
-function App() {
+function Logado() {
   return (
     <>
-      <NavbarComponent />
+      <NavbarLogado />
       <Container>
         <Row>
           <Left />
           <Right />
         </Row>
-      </Container>
-      <Container fluid>
-        <Footer/>
+        <Row>
+          <Footer/>
+        </Row>
       </Container>
       
     </>
   );
 }
 
-export default App;
+export default Logado;
