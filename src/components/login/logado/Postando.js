@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Col, Button, Row, Form } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Postando = (props) => {
   const [titulo, setTitulo] = useState("");
@@ -21,6 +22,7 @@ const Postando = (props) => {
       .post("http://localhost:3001/api/v1/posting", objectToPost)
       .then((response) => {
         console.log(response);
+        alert("Postado com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -70,12 +72,15 @@ const Postando = (props) => {
                 />
               </Form.Group>
 
+              <Button variant="danger" style={style.buttonVoltar}>
+                <a href="/logado" style={{textDecoration: "none", color: "white"}}> Voltar</a>
+              </Button>
               <Button
                 variant="primary"
                 style={style.buttonSalvar}
                 onClick={posting}
               >
-                salvar
+                Salvar
               </Button>
             </Form>
           </div>
@@ -98,6 +103,13 @@ const style = {
     marginTop: "15px",
     padding: "10px",
     width: "140px",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonVoltar: {
+    display: "flex",
+    float: "left",
+    marginTop: "15px",
     justifyContent: "center",
     alignItems: "center",
   },
