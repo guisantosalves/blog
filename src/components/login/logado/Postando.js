@@ -10,22 +10,22 @@ const Postando = (props) => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicTitulo">
                 <Form.Label>Titulo:</Form.Label>
-                <Form.Control placeholder="insira o titulo" />
+                <Form.Control placeholder="insira o titulo" style={{marginTop: "-5px"}}/>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="FormBasicAutor">
                 <Form.Label>Autor:</Form.Label>
-                <Form.Control placeholder="insira o autor" />
+                <Form.Control placeholder="insira o autor" style={{marginTop: "-5px"}}/>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="FormBasicConteudo">
-                <Form.Label>Conteúdo</Form.Label>
-                <Form.Control type="text" />
+                <Form.Label>Conteúdo:</Form.Label>
+                <Form.Control as="textarea" rows={4} style={{marginTop: "-5px"}}/>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="FormBasicDate">
-                <Form.Label>Data</Form.Label>
-                <Form.Control type="date" />
+                <Form.Label>Data:</Form.Label>
+                <Form.Control type="date" style={{marginTop: "-5px"}}/>
               </Form.Group>
 
               <Button variant="primary" style={style.buttonSalvar}>
