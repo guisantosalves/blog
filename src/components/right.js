@@ -91,11 +91,12 @@ const style = {
     borderRadius: "5px",
   },
   likeAndDate: {
+    display: "flex",
     padding: "3px",
     marginTop: "-3px",
   },
   date: {
-    display: "inline-block",
+
     float: "right",
     backgroundColor: "#FFFFFF",
     color: "#000000",
@@ -104,7 +105,6 @@ const style = {
     borderRadius: "5px",
   },
   autor: {
-    display: "inline-block",
     float: "left",
     backgroundColor: "#FFFFFF",
     color: "#000000",
