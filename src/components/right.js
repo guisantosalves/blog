@@ -48,12 +48,12 @@ const Right = (props) => {
       <div>
         {getData.map((item, index) => {
           return (
-            <div style={style.postOfBlog}>
+            <div key={index} style={style.postOfBlog}>
               <div style={style.titulo}>
-                <h4>{item.titulo}</h4>
+                <h4 >{item.titulo}</h4>
               </div>
               <div style={style.conteudo}>
-                <p>{item.conteudo}</p>
+                <p >{item.conteudo}</p>
               </div>
               <div style={style.likeAndDate}>
                 <div style={style.date}>{subdate[index]}</div>
