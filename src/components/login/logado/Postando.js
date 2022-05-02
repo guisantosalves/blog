@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Col, Button, Row, Form } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -16,6 +16,18 @@ const Postando = (props) => {
     conteudo: conteudo,
     data: data,
   };
+
+  useEffect(()=>{
+    axios.get("http://localhost:3001/api/v1/getlogin").then((response)=>{
+      response.data.forEach((item, index) => {
+        if(item.senha === window.sessionStorage.getItem("senha")){
+          console.log("ok")
+        }else{
+          window.location.href = "http://localhost:3000/naologado"
+        }
+      });
+    })
+  }, [])
 
   const posting = () => {
     axios

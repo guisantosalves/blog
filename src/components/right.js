@@ -57,6 +57,7 @@ const Right = (props) => {
               </div>
               <div style={style.likeAndDate}>
                 <div style={style.date}>{subdate[index]}</div>
+                <div style={style.autor}>{item.autor}</div>
               </div>
             </div>
           );
@@ -101,6 +102,16 @@ const style = {
     width: "170px",
     padding: "3px",
     borderRadius: "5px",
+  },
+  autor: {
+    display: "inline-block",
+    float: "left",
+    backgroundColor: "#FFFFFF",
+    color: "#000000",
+    width: "170px",
+    padding: "3px",
+    borderRadius: "5px",
+    marginLeft: "2px",
   },
 };
 export default Right;

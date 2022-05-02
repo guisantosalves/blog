@@ -10,13 +10,23 @@ function Login(props) {
 
   //usando axios com o método post
   const createPost = () => {
+    //organizando crptografia
+    let arr = [];
+    var ciphertext = CryptoJS.SHA256(senha);
+    ciphertext.words.forEach((item, index) => {
+      arr.push(item);
+    });
+    var StringOFarr = arr.toString();
+    var splitOFStringOfArrSenha = StringOFarr.replaceAll(",", "");
+    console.log(splitOFStringOfArrSenha);
+
     axios
       .post("http://localhost:3001/api/v1/postlogin", {
         usuario: login,
-        senha: senha,
+        senha: splitOFStringOfArrSenha,
       })
       .then((response) => {
-        setPost(response.data);
+        setPost(response);
       });
 
     console.log(post);
@@ -27,30 +37,45 @@ function Login(props) {
     axios
       .get("http://localhost:3001/api/v1/getlogin")
       .then((response) => {
-        //descriptografando
-        const result = CryptoJS.AES.decrypt(response.data, process.env.REACT_APP_KEYOFAES);
-
-        //passando para utf8
-        const puttingInUtf8 = result.toString(CryptoJS.enc.Utf8);
-
-        //verificando se a senha existe na string
-        const getResultOfEnv =
-          process.env.REACT_APP_PASSWORD == senha ? true : false;
-
-        if (puttingInUtf8.indexOf(process.env.REACT_APP_PASSWORD) !== -1) {
-          if (getResultOfEnv) {
-            console.log("você esta logado");
-
-            // ! mudar quando subir o blog
+        // Encrypt
+        let arr = [];
+        var ciphertext = CryptoJS.SHA256(senha);
+        ciphertext.words.forEach((item, index) => {
+          arr.push(item);
+        });
+        var StringOFarr = arr.toString();
+        var splitOFStringOfArrSenha = StringOFarr.replaceAll(",", "");
+        
+        response.data.forEach((item,index) => {
+          if(item.senha === splitOFStringOfArrSenha){
+            window.sessionStorage.setItem("senha", splitOFStringOfArrSenha)
+            alert("Senha existente logado")
             window.location.href = "http://localhost:3000/logado";
           }else{
-            console.log("Senha incorreta")
             alert("Senha incorreta")
           }
-        } else {
-          console.log("você nao esta logado");
-          alert("você nao esta logado")
-        }
+        })
+
+        // response.data.forEach((item, index) => {
+        //   console.log("vem do banco:", item.senha)
+        //   if(senhaFromUserCrypt === item.senha){
+        //     console.log("vc esta logado")
+        //   }
+        // });
+        // if (puttingInUtf8.indexOf(process.env.REACT_APP_PASSWORD) !== -1) {
+        //   if (getResultOfEnv) {
+        //     console.log("você esta logado");
+
+        //     // ! mudar quando subir o blog
+        //     window.location.href = "http://localhost:3000/logado";
+        //   }else{
+        //     console.log("Senha incorreta")
+        //     alert("Senha incorreta")
+        //   }
+        // } else {
+        //   console.log("você nao esta logado");
+        //   alert("você nao esta logado")
+        // }
       })
       .catch((error) => {
         console.log(error);
