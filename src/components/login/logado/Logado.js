@@ -9,12 +9,12 @@ import axios from "axios";
 //tem que botar sempre os links na pag html principal tmb, se n nao funciona
 function Logado() {
   useEffect(()=>{
-    axios.get("http://localhost:3001/api/v1/getlogin").then((response)=>{
+    axios.get("https://api-blog-gui.herokuapp.com/api/v1/getlogin").then((response)=>{
       response.data.forEach((item, index) => {
         if(item.senha === window.sessionStorage.getItem("senha")){
           console.log("ok")
         }else{
-          window.location.href = "http://localhost:3000/naologado"
+          window.location.href = "https://www.google.com/"
         }
       });
     })

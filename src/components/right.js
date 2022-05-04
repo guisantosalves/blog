@@ -15,7 +15,7 @@ const Right = (props) => {
   useEffect(() => {
     // usando axios para pegar o post do BD
     axios
-      .get("http://localhost:3001/api/v1/getpost")
+      .get("https://api-blog-gui.herokuapp.com/api/v1/getpost")
       .then((response) => {
         setgetData(response.data);
       })

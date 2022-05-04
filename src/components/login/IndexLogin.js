@@ -21,7 +21,7 @@ function Login(props) {
     console.log(splitOFStringOfArrSenha);
 
     axios
-      .post("http://localhost:3001/api/v1/postlogin", {
+      .post("https://api-blog-gui.herokuapp.com/api/v1/postlogin", {
         usuario: login,
         senha: splitOFStringOfArrSenha,
       })
@@ -30,12 +30,13 @@ function Login(props) {
       });
 
     console.log(post);
+    console.alert("logado com sucesso")
   };
 
   //usando axios com o método get
   const getDataToVerify = () => {
     axios
-      .get("http://localhost:3001/api/v1/getlogin")
+      .get("https://api-blog-gui.herokuapp.com/api/v1/getlogin")
       .then((response) => {
         // Encrypt
         let arr = [];
@@ -50,6 +51,8 @@ function Login(props) {
           if(item.senha === splitOFStringOfArrSenha){
             window.sessionStorage.setItem("senha", splitOFStringOfArrSenha)
             alert("Senha existente logado")
+            
+            //!mudar
             window.location.href = "http://localhost:3000/logado";
           }else{
             alert("Senha incorreta")

@@ -18,12 +18,12 @@ const Postando = (props) => {
   };
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/api/v1/getlogin").then((response)=>{
+    axios.get("https://api-blog-gui.herokuapp.com/api/v1/getlogin").then((response)=>{
       response.data.forEach((item, index) => {
         if(item.senha === window.sessionStorage.getItem("senha")){
           console.log("ok")
         }else{
-          window.location.href = "http://localhost:3000/naologado"
+          window.location.href = "https://www.google.com/"
         }
       });
     })
@@ -31,7 +31,7 @@ const Postando = (props) => {
 
   const posting = () => {
     axios
-      .post("http://localhost:3001/api/v1/posting", objectToPost)
+      .post("https://api-blog-gui.herokuapp.com/api/v1/posting", objectToPost)
       .then((response) => {
         console.log(response);
         alert("Postado com sucesso!");
@@ -41,6 +41,9 @@ const Postando = (props) => {
       });
   };
 
+  const testingMyobject = () => {
+    console.log(objectToPost)
+  }
   return (
     <Container>
       <Row>
