@@ -23,7 +23,7 @@ const Postando = (props) => {
         if(item.senha === window.sessionStorage.getItem("senha")){
           console.log("ok")
         }else{
-          window.location.href = "https://www.google.com/"
+          window.location.href = "https://guigo-blog.herokuapp.com/"
         }
       });
     })

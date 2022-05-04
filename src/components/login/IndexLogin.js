@@ -53,7 +53,7 @@ function Login(props) {
             alert("Senha existente logado")
             
             //!mudar
-            window.location.href = "http://localhost:3000/logado";
+            window.location.href = "https://guigo-blog.herokuapp.com/logado";
           }else{
             alert("Senha incorreta")
           }
